@@ -112,31 +112,46 @@ fun PaginationControls(
     onNextClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row(
+    Column(
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+        verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        OutlinedButton(
-            onClick = onPreviousClick,
-            enabled = hasPreviousPage
-        ) {
-            Text("Anterior")
-        }
-        
+        // Page info centered
         Text(
             text = "Página $currentPage de $totalPages",
             style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         
-        OutlinedButton(
-            onClick = onNextClick,
-            enabled = hasNextPage
+        // Buttons in row with flexible width
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Text("Siguiente")
+            OutlinedButton(
+                onClick = onPreviousClick,
+                enabled = hasPreviousPage,
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = "Anterior",
+                    maxLines = 1
+                )
+            }
+            
+            OutlinedButton(
+                onClick = onNextClick,
+                enabled = hasNextPage,
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = "Siguiente",
+                    maxLines = 1
+                )
+            }
         }
     }
 }

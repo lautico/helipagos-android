@@ -1,11 +1,14 @@
 package com.example.helipagos_android.features.paymentrequests.ui.create
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
@@ -19,6 +22,9 @@ fun CreatePaymentRequestDialog(
     modifier: Modifier = Modifier
 ) {
     val createState by viewModel.createPaymentState.collectAsStateWithLifecycle()
+    val scrollState = rememberScrollState()
+    val configuration = LocalConfiguration.current
+    val maxHeight = (configuration.screenHeightDp * 0.85).dp
 
     LaunchedEffect(createState.isSuccess) {
         if (createState.isSuccess) {
@@ -30,11 +36,14 @@ fun CreatePaymentRequestDialog(
         Card(
             modifier = modifier
                 .fillMaxWidth()
+                .heightIn(max = maxHeight)
                 .padding(16.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
         ) {
             Column(
-                modifier = Modifier.padding(24.dp),
+                modifier = Modifier
+                    .verticalScroll(scrollState)
+                    .padding(24.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Text(
