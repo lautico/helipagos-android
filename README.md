@@ -140,13 +140,24 @@ app/src/main/java/com/example/helipagos_android/
 
 ## 🧪 Testing
 
-### Ejecutar Tests Unitarios
+### Tests Automatizados con CI/CD
+
+✅ **Los tests se ejecutan automáticamente** gracias al pipeline de CI/CD configurado en GitHub Actions:
+
+- ✅ Tests unitarios ejecutados en cada push/PR
+- ✅ Tests de UI verificados automáticamente
+- ✅ Build de APK y AAB en releases
+- ✅ Validación de código antes de merge
+
+### Ejecutar Tests Localmente
+
+#### Tests Unitarios
 
 ```bash
 ./gradlew testDebugUnitTest
 ```
 
-### Ejecutar Tests de UI
+#### Tests de UI
 
 ```bash
 ./gradlew connectedDebugAndroidTest
@@ -155,8 +166,30 @@ app/src/main/java/com/example/helipagos_android/
 ### Cobertura de Tests
 
 - **ViewModel Tests**: Lógica de estado y casos de uso
-- **Repository Tests**: Interacciones con API
-- **Compose UI Tests**: Renderizado y interacciones
+  - PaymentRequestsViewModel: 15+ casos de prueba
+  - PaymentDetailViewModel: 10+ casos de prueba
+- **Repository Tests**: Interacciones con API (8+ casos)
+- **Compose UI Tests**: Renderizado y interacciones (11+ casos)
+- **Total**: ~44 casos de prueba
+
+### Tecnologías de Testing
+
+- **JUnit** - Framework de testing
+- **Mockk** - Mocking library para Kotlin
+- **Turbine** - Testing para Flow/StateFlow
+- **Coroutines Test** - Testing asíncrono
+- **Compose Testing** - UI testing para Jetpack Compose
+
+### CI/CD Pipeline
+
+El proyecto incluye un workflow de GitHub Actions que:
+
+1. ✅ Ejecuta todos los tests automáticamente
+2. ✅ Compila la aplicación (APK y AAB)
+3. ✅ Crea releases automáticos con tags
+4. ✅ Valida el código antes de merge
+
+Ver detalles en `.github/workflows/version-release.yml`
 
 ## 📋 API Integration
 
@@ -258,7 +291,7 @@ implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
 ### APK Debug
 
-Disponible en `app/build/outputs/apk/debug/` después del build
+Disponible en releases después del actions
 
 ### Funcionalidades Completadas
 
@@ -291,6 +324,31 @@ Disponible en `app/build/outputs/apk/debug/` después del build
 - **Result wrapper** para manejo consistente
 - **Network exceptions** tipadas
 - **User-friendly error messages**
+
+## 🚀 Próximos Pasos
+
+### Mejoras Potenciales
+
+- Room database para cache local
+- Paging 3 library para paginación avanzada
+- Offline-first architecture
+- Push notifications
+- Biometric authentication
+
+### Performance
+
+- Image optimization
+- Memory leak prevention
+- Background task optimization
+
+## Contacto
+
+Para consultas sobre la implementación o arquitectura del proyecto:
+
+- **Desarrollador**: Lautaro Correa
+- **Email**: lautico123456789@gmail.com
+- **[GitHub](https://github.com/lautico)**
+
 ---
 
-Desarrollado como prueba técnica para Helipagos - Octubre 2025_
+_Desarrollado como prueba técnica para Helipagos - Octubre 2025_
