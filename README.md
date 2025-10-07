@@ -116,7 +116,7 @@ app/src/main/java/com/example/helipagos_android/
 1. **Clonar el repositorio**
 
    ```bash
-   git clone https://github.com/tu-usuario/helipagos-android.git
+   git clone https://github.com/lautico/helipagos-android
    cd helipagos-android
    ```
 
@@ -291,31 +291,6 @@ Disponible en `app/build/outputs/apk/debug/` después del build
 - **Result wrapper** para manejo consistente
 - **Network exceptions** tipadas
 - **User-friendly error messages**
-
-## 🚀 Próximos Pasos
-
-### Mejoras Potenciales
-
-- Room database para cache local
-- Paging 3 library para paginación avanzada
-- Offline-first architecture
-- Push notifications
-- Biometric authentication
-
-### Performance
-
-- Image optimization
-- Memory leak prevention
-- Background task optimization
-
-## Contacto
-
-Para consultas sobre la implementación o arquitectura del proyecto:
-
-- **Desarrollador**: Lautaro Correa
-- **Email**: lautico123456789@gmail.com
-- **[GitHub](https://github.com/lautico)**
-
 ---
 
-_Desarrollado como prueba técnica para Helipagos - Octubre 2025_
+Desarrollado como prueba técnica para Helipagos - Octubre 2025_
